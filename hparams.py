@@ -26,12 +26,12 @@ hparams = tf.contrib.training.HParams(
     # --------------
     # audio processing parameters
     num_mels=80,
-    fmin=95,
+    fmin=125,
     fmax=7600,
-    n_fft=2048,
-    hop_size=200,
-    win_size=800,
-    sample_rate=16000,
+    n_fft=1024,
+    hop_size=256,
+    win_size=1024,
+    sample_rate=22050,
 
     min_level_db=-100,
     ref_level_db=20,
@@ -67,7 +67,7 @@ hparams = tf.contrib.training.HParams(
     pad=2,
     # note upsample factors must multiply out to be equal to hop_size, so adjust
     # if necessary (i.e 4 x 5 x 10 = 200)
-    upsample_factors=(4, 5, 10),
+    upsample_factors=(4, 4, 16),
     compute_dims=64,
     res_out_dims=32*2, #aux output is fed into 2 downstream nets
     res_blocks=3,
